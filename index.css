@@ -1,0 +1,120 @@
+
+
+body {
+    box-sizing: border-box;
+    margin: 0 auto;
+    background-color: #111827;
+    font-family: "Inter";
+    width: 550px;
+}
+
+.text-white {
+    color: white;
+}
+
+.output-label {
+    color: #5A537B;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.text-output-shade {
+    color: #353535;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.text-output-hidden {
+    visibility: hidden;
+}
+
+.text-output-shown {
+    display: "";
+}
+
+h1 {
+    font-size: 28px;
+    line-height: 38px;
+    margin-top: 33px;
+}
+
+#container {
+    margin: 0 auto;
+    background-color: #F4F4F4;
+    height: 729px;
+}
+
+.rectangle {
+    border-radius: 5px;
+}
+
+#user-input-area {
+    height: 285px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 10px;
+    background-color: #6943FF;
+}
+
+#input-formatting-box {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 117px;
+    margin-bottom: 36px;
+}
+
+#user-input {
+    border: 2px solid #B295FF;
+    height: 83px;
+    background-color: transparent;
+    text-align: center;
+    font-size: 58px;
+    font-weight: 900;
+    color: #FFFFFF;
+}
+
+
+#convert-btn {
+    border: none;
+    background-color: #FFFFFF;
+    color: #3D3D3D;
+    height: 42px;
+    font-family: Inter;
+    font-size: 1rem;
+    line-height: 24px;
+    font-weight: 500;
+}
+
+.button-dimmed {
+    opacity: .5;
+}
+
+#output-area {
+    margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#output-formatting-box {
+    margin-top: 36px;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    gap: 24px;
+}
+
+.output-card {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    height: 108.57px;
+    text-align: center;
+    align-content: center;
+}
