@@ -22,7 +22,7 @@ Visit https://vitejs.dev/ for useful information on Vite
 
 I've found the lessons within the [Fullstack](https://scrimba.com/courses) course at Scrimba to be helpful in my efforts to learn basic programming concepts. There are plenty of ways to learn; this one has been useful to me. The learning material is presented in small amounts and there are lots of hands-on challenges that help consolidate information into understanding.
 
-> Main learning principle in Scrimba learning environment: build first, then improve
+> A significant principle in the Scrimba learning environment: build first, then improve
 
 ## Attribution / Acknowledgments
 
