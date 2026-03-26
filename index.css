@@ -60,13 +60,17 @@ h1 {
     background-color: #6943FF;
 }
 
+
 #input-formatting-box {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 25px;
-    width: 117px;
+    min-width: 117px;
+    max-width: 300px;
     margin-bottom: 36px;
 }
+
 
 #user-input {
     border: 2px solid #B295FF;
@@ -76,14 +80,17 @@ h1 {
     font-size: 58px;
     font-weight: 900;
     color: #FFFFFF;
+    min-width: 117px;
+    max-width: 300px;
+    field-sizing: content;
 }
-
 
 #convert-btn {
     border: none;
     background-color: #FFFFFF;
     color: #3D3D3D;
     height: 42px;
+    width: 121px; /* added */
     font-family: Inter;
     font-size: 1rem;
     line-height: 24px;
