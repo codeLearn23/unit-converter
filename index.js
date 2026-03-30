@@ -37,6 +37,44 @@ all output text in the anySentence nodeList will be hidden in the UI.
 The commented setTimeouts are ideas that may be implemented later.
 */
 
+/* function hideOutput() {
+    convertButton.classList.add("button-dimmed");    
+    anySentence.forEach(sentence => sentence.style="visibility: hidden");
+} */
+
+const validateInput = (a) => {
+    // function to remove comma character from input
+    const removeComma = (a) => {
+        const inputArray = a.split("");
+        const cleaned = inputArray.filter(letter => {
+            return letter !== ",";
+        })
+        const rejoined = cleaned.join("");
+        return rejoined;
+    }
+
+    const notComma = removeComma(a);
+    // regEx test, example: 1.2 (purpose: confirm);
+    const testReg = /(\d+[\.,]?\d+)/g;
+    // regEx test, example: a2 (purpose: eliminate)
+    const alphaReg = /([A-Za-z]+\d+)|(\d+[A-Za-z]+)|([A-Za-z]+.\d+)|(\d+.[A-Za-z]+)/g;
+
+    if (!testReg.test(notComma) || alphaReg.test(notComma) /*(a.value[0] === "-" || a.value === "0") || */ /*charsArray.includes(a.value) === false */) {
+        convertButton.classList.add("button-dimmed");
+        //setTimeout(() => inputValue.value = "", 500);
+        
+        setTimeout(() => notComma = "", 500);
+        setTimeout(() => convertButton.classList.remove("button-dimmed"), 500);
+        //setTimeout(() => convertButton.style="opacity: 1.0", 2000);
+        anySentence.forEach(sentence => sentence.style="visibility: hidden");
+    } else {
+        convertButton.classList.remove("button-dimmed");
+        anySentence.forEach(sentence => sentence.style="visibility: shown");
+        console.log("nocomma", notComma);
+    }
+}
+
+/*
 function validateInput(a) {
     if (a.value[0] === "-" || a.value === "0") {
         convertButton.classList.add("button-dimmed");
@@ -48,6 +86,7 @@ function validateInput(a) {
         anySentence.forEach(sentence => sentence.style="visibility: shown");
     }    
 }
+*/
 
 // the showByTest() function tests <input> value to determine visibility of text output
 // it controls the selection of the classes defined in the CSS file
@@ -59,9 +98,8 @@ function showByTest(sentence) {
 }
 
 convertButton.addEventListener("click", () => {
-    
-    validateInput(inputValue);
-    
+    validateInput(inputValue.value);
+
     showByTest(lengthSentence);
     showByTest(volumeSentence);
     showByTest(massSentence);
