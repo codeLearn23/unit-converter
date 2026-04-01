@@ -11,9 +11,13 @@
         <div id="container">
             <div id="user-input-area">
                 <h1 class="text-white">Metric/Imperial Unit Conversion</h1>
-                <div id="input-formatting-box">
-                    <input id="user-input" maxlength=5 class="rectangle" />
-                    <button id="convert-btn" class="rectangle text-white">Convert</button>
+                <div>
+                    <form id="input-formatting-box">
+                    <label for="user-input">Please enter a number:</label>
+                    <input id="user-input" type="text" inputmode="numeric" title="Please enter digits, no letters" required class="rectangle" />
+                    <button id="convert-btn" type="button" class="rectangle text-white">Convert</button>
+                    <div id="alert-message" class="rectangle"></div>
+                </form>
                 </div>
             </div>
             <div id="output-area">
