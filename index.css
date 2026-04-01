@@ -12,6 +12,12 @@ body {
     color: white;
 }
 
+label {
+    color: yellow;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
 .output-label {
     color: #5A537B;
     font-size: 1.25rem;
@@ -43,7 +49,7 @@ h1 {
 #container {
     margin: 0 auto;
     background-color: #F4F4F4;
-    height: 729px;
+    height: 100%;
 }
 
 .rectangle {
@@ -51,7 +57,7 @@ h1 {
 }
 
 #user-input-area {
-    height: 285px;
+    height: 325px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -62,13 +68,17 @@ h1 {
 
 
 #input-formatting-box {
+    position: relative;
+    //outline: 1px solid yellow;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
     gap: 25px;
     min-width: 117px;
     max-width: 300px;
     margin-bottom: 36px;
+    padding-bottom: 20px;
 }
 
 
@@ -83,6 +93,44 @@ h1 {
     min-width: 117px;
     max-width: 300px;
     field-sizing: content;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/*
+// Firefox
+input[type=number] {
+  -moz-appearance: textfield;
+}
+*/
+
+#alert-message {
+    position: absolute;
+    left: -130px;
+    bottom: 16px;
+    color: white;
+    font-weight: bold;
+    background-color: transparent;
+    border: 3px solid #AC4499;
+    height: fit-content;
+    padding: 5px 10px 5px 15px;
+    width: 50%;
+    text-align: left;
+
+    align-content: center;
+}
+
+input:invalid {
+    border: 2px solid red;
+}
+
+input:valid {
+    border: 2px solid green;
 }
 
 #convert-btn {
@@ -102,6 +150,8 @@ h1 {
 }
 
 #output-area {
+    height: 750px;
+    outline: 2px solid purple;
     margin-top: 0px;
     display: flex;
     flex-direction: column;
@@ -110,6 +160,7 @@ h1 {
 }
 
 #output-formatting-box {
+    height: 750px;
     margin-top: 36px;
     display: flex;
     flex-direction: column;
