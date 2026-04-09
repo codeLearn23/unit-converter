@@ -3,40 +3,43 @@
     <head>
         <title>Unit Converter</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
-        <div id="container">
-            <div id="user-input-area">
-                <h1 class="text-white">Metric/Imperial Unit Conversion</h1>
+        <main id="container">
+            <section id="user-input-area">
+                <h1 class="bright">Metric/Imperial Unit Conversion</h1>
                 <div>
-                    <form id="input-formatting-box">
+                <form id="input-formatting-box">
                     <label for="user-input">Please enter a number:</label>
-                    <input id="user-input" type="text" inputmode="numeric" title="Please enter digits, no letters" required class="rectangle" />
-                    <button id="convert-btn" type="button" class="rectangle text-white">Convert</button>
-                    <div id="alert-message" class="rectangle"></div>
+                    <input id="user-input" type="text" inputmode="numeric" title="Please enter digits, no letters" />
+                    <button id="convert-btn" type="submit" class="bright" tabindex="0">Convert</button>
+                    
                 </form>
                 </div>
-            </div>
-            <div id="output-area">
-                <div id="output-formatting-box">
-                    <div class="output-card rectangle">
-                        <p class="output-label">Length (Meters/Feet)</p>
-                        <p id="length-sentence" class="text-output-shade"></p>
-                    </div>
-                    <div class="output-card rectangle">
-                        <p class="output-label">Volume (Liters/Gallons)</p>
-                        <p id="volume-sentence" class="text-output-shade"></p>
-                    </div>
-                    <div class="output-card rectangle">
-                        <p class="output-label">Mass (Kilograms/Pounds)</p>
-                        <p id="mass-sentence" class="text-output-shade"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+            </section>
+            <!-- relative positioning for this section -->
+            <section id="output-area">
+                <h2 class="sr-only">Conversions:</h2>
+                <div id="test-message">Numbers and decimal points only</div>
+                <ul id="output-formatting-box">
+                    <li class="output-card" tabindex="0">
+                        <h2 class="output-hdg">Length (Meters/Feet)</h2>
+                        <p id="length-sentence" class="output-content"></p>
+                    </li>
+                    <li class="output-card" tabindex="0">
+                        <h2 class="output-hdg">Volume (Liters/Gallons)</h2>
+                        <p id="volume-sentence" class="output-content"></p>
+                    </li>
+                    <li class="output-card" tabindex="0">
+                        <h2 class="output-hdg">Mass (Kilograms/Pounds)</h2>
+                        <p id="mass-sentence" class="output-content"></p>
+                    </li>
+                </ul>
+            </section>
+        </main>
         <script src="index.js"></script>
     </body>
 </html>

@@ -1,34 +1,47 @@
-
-
-body {
+* {
     box-sizing: border-box;
-    margin: 0 auto;
-    background-color: #111827;
-    font-family: "Inter";
-    width: 550px;
 }
 
-.text-white {
-    color: white;
+:root {
+    --bkgnd: #F4F4F4;
+    --bright: #FFFFFF;
+    --cta: yellow;
+    --conversion: #3D3D3D;
+    --output-hdg: #5A537B;
+    --output-content: #353535;
+    --top-bkgnd: #6943FF;
+    --input-border: #B295FF;
+    --radius: 5px;
+}
+
+body {
+    margin: 0 auto;
+    background-color: var(--bkgnd);
+    font-family: "Inter";
+    width: 100%;
+}
+
+.bright {
+    color: var(--bright);
 }
 
 label {
-    color: yellow;
+    color: var(--cta);
     font-size: 1.4rem;
     font-weight: bold;
 }
 
-.output-label {
-    color: #5A537B;
+.output-hdg {
+    color: var(--output-hdg);
     font-size: 1.25rem;
     font-weight: 600;
 }
 
-.text-output-shade {
-    color: #353535;
+.output-content {
+    color: var(--output-content);
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 20px;
 }
 
@@ -41,19 +54,16 @@ label {
 }
 
 h1 {
-    font-size: 28px;
+    font-size: 1.75rem;
     line-height: 38px;
     margin-top: 33px;
+    color: var(--bright);
 }
 
 #container {
     margin: 0 auto;
-    background-color: #F4F4F4;
+    background-color: var(--bkgnd);
     height: 100%;
-}
-
-.rectangle {
-    border-radius: 5px;
 }
 
 #user-input-area {
@@ -63,13 +73,10 @@ h1 {
     align-items: center;
     justify-content: space-evenly;
     gap: 10px;
-    background-color: #6943FF;
+    background-color: var(--top-bkgnd);
 }
 
-
 #input-formatting-box {
-    position: relative;
-    //outline: 1px solid yellow;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -81,15 +88,15 @@ h1 {
     padding-bottom: 20px;
 }
 
-
 #user-input {
-    border: 2px solid #B295FF;
+    border: 2px solid var(--input-border);
+    border-radius: var(--radius);
     height: 83px;
     background-color: transparent;
     text-align: center;
-    font-size: 58px;
+    font-size: 3.625rem;
     font-weight: 900;
-    color: #FFFFFF;
+    color: var(--bright);
     min-width: 117px;
     max-width: 300px;
     field-sizing: content;
@@ -109,57 +116,79 @@ input[type=number] {
 }
 */
 
-#alert-message {
-    position: absolute;
-    left: -130px;
-    bottom: 16px;
-    color: white;
-    font-weight: bold;
-    background-color: transparent;
-    border: 3px solid #AC4499;
-    height: fit-content;
-    padding: 5px 10px 5px 15px;
-    width: 50%;
-    text-align: left;
-
-    align-content: center;
-}
-
-input:invalid {
-    border: 2px solid red;
-}
-
-input:valid {
-    border: 2px solid green;
-}
-
 #convert-btn {
     border: none;
-    background-color: #FFFFFF;
-    color: #3D3D3D;
+    border-radius: var(--radius);
+    background-color: var(--bright);
+    color: var(--conversion);
+    cursor: pointer;
     height: 42px;
-    width: 121px; /* added */
+    width: 121px;
     font-family: Inter;
     font-size: 1rem;
     line-height: 24px;
     font-weight: 500;
 }
 
+#convert-btn:focus,
+#convert-btn:hover {
+    opacity: .8;
+}
+
 .button-dimmed {
     opacity: .5;
 }
 
+/* relative positioning
+for sr-only child and test-message child */
 #output-area {
+    position: relative;
     height: 750px;
-    outline: 2px solid purple;
-    margin-top: 0px;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
 }
 
+/* absolute positioning as child */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* absolute positioning as child */
+#test-message {
+    position: absolute;
+    font-weight: 600;
+    font-size: 1.4rem;
+    background-color: var(--top-bkgnd);
+    opacity: 1.0;
+    color: var(--bright);
+    top: 0px;
+    left: -410px;
+    outline: 2px solid var(--conversion);
+    padding: 10px 40px 10px 40px;
+    border-radius: calc(var(--radius) * 10);
+}
+
+#test-message.validation-message {
+    left: -30px;
+    transition: 1.3s;
+}
+
+/* unordered list for accessibility */
 #output-formatting-box {
+    padding-left: 0;
+    padding-top: 30px;
+    list-style: none;
     height: 750px;
     margin-top: 36px;
     display: flex;
@@ -170,9 +199,11 @@ input:valid {
 
 .output-card {
     display: flex;
+    min-height: fit-content;
     flex-direction: column;
-    background-color: white;
+    background-color: var(--bright);
     height: 108.57px;
     text-align: center;
     align-content: center;
+    border-radius: var(--radius);
 }

@@ -10,22 +10,18 @@ CONVERSIONS given by Scrimba
 const convertButton = document.getElementById("convert-btn");
 convertButton.classList.add("text-output-shown");
 const inputValue = document.getElementById("user-input");
-const alertMsg = document.getElementById("alert-message");
+const testMsg = document.getElementById("test-message");
+//const alertMsg = document.getElementById("alert-message");
 const outputCard = document.querySelector(".output-card");
 const anySentence = document.querySelectorAll(".text-output-shade");
 const lengthSentence = document.getElementById("length-sentence");
 const volumeSentence = document.getElementById("volume-sentence");
 const massSentence = document.getElementById("mass-sentence");
 
-let builtString = "";
-
 inputValue.addEventListener("input", (event) => {
-    
-    event.target.value.split("").filter(item => /[0-9.]/g.test(item)).join("");
+    event.currentTarget.value.split("").filter(item => /[0-9.]/g.test(item)).join("");
     //inputValue.value.className = "text-output-hidden";
 })
-
-
 
 //inputValue.value.className = "text-output-hidden";
 
@@ -35,21 +31,19 @@ inputValue.addEventListener("input", (event) => {
 
 function showByTest(sentence) {
     sentence.className = (inputValue.value === "0" || inputValue.value === "") ? "text-output-hidden" : "text-output-shown";
-    //console.log("//", inputValue.value);
 }
 
-//console.log("whynot".slice(length - 1));
-console.log("12345,&^@#9".split("").filter(item => /[0-9]/.test(item)).join(""));
-alertMsg.style = "visibility: hidden";
-convertButton.addEventListener("click", () => {
+convertButton.addEventListener("click", (event) => {
+    event.preventDefault();
 
     if (/[A-Za-z]/.test(inputValue.value)) {
+        console.log("no letters please");
+        console.log(testMsg.classList);
+        testMsg.classList.add("validation-message");
         inputValue.value = "";
-        alertMsg.style = "visibility: visible";
-        alertMsg.textContent = "Numbers or decimal point only";
     } else {
 
-        alertMsg.style = "visibility: hidden";
+        testMsg.classList.remove("validation-message");
 
         showByTest(lengthSentence);
         showByTest(volumeSentence);
@@ -61,11 +55,9 @@ convertButton.addEventListener("click", () => {
         massSentence.innerHTML = buildConversionString("kilos");
         
         inputValue.value = "";
-
-        // see comments above
-        //fadeOut();
     }
 })
+
 
 function buildConversionString(units) {
     // these 3 functions format the singular of whichever unit is being used
